@@ -163,8 +163,7 @@ console.log('Problem 3:')
 
 function wordyMath (wordProblem) {
   const words = wordProblem.split(' ')
-  let num1
-  let num2
+
   // parse word problem and check if it includes "plus, minus, multipled or divided"
   if (words.includes('plus')) {
     return parseInt(words[2]) + parseInt(words[4])
