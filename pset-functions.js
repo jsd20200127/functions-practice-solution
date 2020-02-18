@@ -69,59 +69,40 @@ console.log(triangleType)
 console.log('')
 console.log('-----------------')
 
+
 /***********
 
-Problem: Phone Number Cleaner
+Problem: Random Number Generator
 
-Your task is to clean up differently formatted telephone numbers by removing punctuation and the country code (1) if present.
+Create a function that accepts an "upToNumber" as a parameter that generates a random number from 1 to the specifed "upToNumber"
 
-Create a function that accepts a formatted "phoneNumber" and removes all punctuation and an leading (1) if present
-
-Feel free to add any additional functions or variables you deem necessary to meet the above requirements
 
 Test Cases:
 Use the following test cases to confirm your program meets the success criteria
 
-1. phoneNumberCleaner("+1 (613)-995-0253")
+1. randomNumber(100)
 
-   Expected Result: 6139950253
+   Expected Result: a random number (integer)  from 1 to 100
 
-2. phoneNumberCleaner("613-995-0253")
+2. randomNumber(25)
 
-   Expected Result: 6139950253
+   Expected Result: a random number (integer) from 1 to 25
 
-3. phoneNumberCleaner("1 613 995 0253")
+3. randomNumber(1500)
 
-   Expected Result: 6139950253
-
-4. phoneNumberCleaner("613.995.0253")
-
-   Expected Result: 6139950253
+   Expected Result: a random number (integer) from 1 to 1500
 
 ************/
 console.log('Problem 2:')
 
 // Add your code below this line
 
-function phoneNumberCleaner (phoneNumber) {
-  // ** A great Regular expression tutorial
-  // can be found at: https://regexone.com/ **
-
-  // remove all occurences of ".", "-", "+", "(", ")"  and any whitespace
-  let formattedNumber = phoneNumber.replace(/[\.\-\+)(\s]/g, '')
-
-  // check if formatted number is longer than 10 digits
-  // we assume this means a 1 has been prepended
-  if (formattedNumber.length > 10) {
-    // use .substr() to only to exclude prepending "1"
-    // per the requirements
-    return formattedNumber.substr(1, 10)
-  }
-
-  return formattedNumber
+function randomNumber(upToNumber) {
+  return Math.floor(Math.random() * upToNumber + 1)
 }
 
-console.log(phoneNumberCleaner('+1 (613)-995-0253'))
+console.log(randomNumber(100))
+
 // Add your code above this line
 
 /** added for formatting purposes **/
@@ -129,63 +110,44 @@ console.log('')
 console.log('-----------------')
 
 /***********
-Problem: Wordy Math
+Problem: Odd Number Checker
 
-Parse and evaluate simple math word problems returning the answer as an integer.
 
-Create a function that accepts a "mathProblem" as a parameter and translate that word problem into an integer based math problems and returns an integer representing the answer
+Create a function that accepts a "number" as a parameter and returns true if the number is an odd number and false if the number is an even number
 
 Feel free to add any additional functions or variables you deem necessary to meet the above requirements
 
 Test Cases:
 Use the following test cases to confirm your program meets the success criteria
 
-1. wordyMath("What is 5 plus 13?")
+1. isOdd(3)
 
-   Expected Result: 18
+   Expected Result: true
 
-2. wordyMath("What is 7 minus 5?")
+2. isOdd(20)
 
-   Expected Result: 2
+   Expected Result: false
 
-3. wordyMath("What is 6 multiplied by 4?")
+3. isOdd(10001)
 
-   Expected Result: 24
-
-4. wordyMath("What is 25 divided by 5?")
-
-   Expected Result: 24
+   Expected Result: true
 
 ************/
 console.log('Problem 3:')
 
 // Add your code below this line
-
-function wordyMath (wordProblem) {
-  const words = wordProblem.split(' ')
-
-  // parse word problem and check if it includes "plus, minus, multipled or divided"
-  if (words.includes('plus')) {
-    return parseInt(words[2]) + parseInt(words[4])
-  } else if (words.includes('minus')) {
-    return parseInt(words[2]) - parseInt(words[4])
-  } else if (words.includes('multiplied')) {
-    return parseInt(words[2]) * parseInt(words[5])
-  } else if (words.includes('divided')) {
-    return parseInt(words[2]) / parseInt(words[5])
-  } else {
-    console.log('operator not found')
-  }
+function isOdd(number) {
+  return number % 2 !== 0
 }
 
-const result = wordyMath('What is 25 divided by 5?')
-console.log(result)
+console.log(isOdd(10))
 
 // Add your code above this line
 
 /** added for formatting purposes **/
 console.log('')
 console.log('-----------------')
+
 
 /***********
 Tags: functions
@@ -250,6 +212,66 @@ function nucleotideCount (nucleotide) {
 }
 
 console.log(nucleotideCount('AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC'))
+
+// Add your code above this line
+
+/** added for formatting purposes **/
+console.log('')
+console.log('-----------------')
+
+
+/***********
+Problem: Wordy Math
+
+Parse and evaluate simple math word problems returning the answer as an integer.
+
+Create a function that accepts a "mathProblem" as a parameter and translate that word problem into an integer based math problems and returns an integer representing the answer
+
+Feel free to add any additional functions or variables you deem necessary to meet the above requirements
+
+Test Cases:
+Use the following test cases to confirm your program meets the success criteria
+
+1. wordyMath("What is 5 plus 13?")
+
+   Expected Result: 18
+
+2. wordyMath("What is 7 minus 5?")
+
+   Expected Result: 2
+
+3. wordyMath("What is 6 multiplied by 4?")
+
+   Expected Result: 24
+
+4. wordyMath("What is 25 divided by 5?")
+
+   Expected Result: 24
+
+************/
+console.log('Problem 5 (challenge):')
+
+// Add your code below this line
+
+function wordyMath (wordProblem) {
+  const words = wordProblem.split(' ')
+
+  // parse word problem and check if it includes "plus, minus, multipled or divided"
+  if (words.includes('plus')) {
+    return parseInt(words[2]) + parseInt(words[4])
+  } else if (words.includes('minus')) {
+    return parseInt(words[2]) - parseInt(words[4])
+  } else if (words.includes('multiplied')) {
+    return parseInt(words[2]) * parseInt(words[5])
+  } else if (words.includes('divided')) {
+    return parseInt(words[2]) / parseInt(words[5])
+  } else {
+    console.log('operator not found')
+  }
+}
+
+const result = wordyMath('What is 25 divided by 5?')
+console.log(result)
 
 // Add your code above this line
 
