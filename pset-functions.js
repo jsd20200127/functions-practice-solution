@@ -188,28 +188,47 @@ console.log('Problem 4:')
 
 function nucleotideCount (nucleotide) {
   const letters = nucleotide.split('')
-  const wordCount = {}
+  const letterCount = {}
 
   // example letters array: ["G", "G", "G", "G", "G", "T", "A", "A", "C", "C", "C", "G", "G"]
 
   letters.forEach((letter) => {
-    // check if letter exists as a key in wordCount object
+    // check if letter exists as a key in letterCount object
     // if it does not, then add letter as key and value as 1
     // if letter already exists, then increment value by 1
 
-    if (wordCount[letter] === undefined) {
-      // if letter does not already exist in wordCount object
-      wordCount[letter] = 1
+    if (letterCount[letter] === undefined) {
+      // if letter does not already exist in letterCount object
+      letterCount[letter] = 1
     } else {
-      // letter already exists in wordCount object
+      // letter already exists in letterCount object
       // increment value by 1
-      wordCount[letter] = wordCount[letter] + 1
+      letterCount[letter] = letterCount[letter] + 1
     }
-    // console.log(wordCount)
+    // console.log(letterCount)
   })
 
-  return wordCount
+  return letterCount
 }
+
+
+// using .reduce()
+// function nucleotideCount(dna) {
+//   const letters = dna.split('')
+//
+//   return letters.reduce((letterCount, letter) => {
+//     if (letterCount[letter] === undefined) {
+//       // if letter does not already exist in letterCount object
+//       letterCount[letter] = 1
+//     } else {
+//       // letter already exists in letterCount object
+//       // increment value by 1
+//       letterCount[letter] = letterCount[letter] + 1
+//     }
+//     return letterCount
+//   }, {})
+// }
+
 
 console.log(nucleotideCount('AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC'))
 
